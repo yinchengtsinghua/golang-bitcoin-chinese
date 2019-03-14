@@ -271,7 +271,7 @@ func getServiceURL(rootURL string) (url string, err error) {
 
 //CombineURL将子URL附加到rootURL。
 func combineURL(rootURL, subURL string) string {
-protocolEnd := "://“
+protocolEnd := "://"
 	protoEndIndex := strings.Index(rootURL, protocolEnd)
 	a := rootURL[protoEndIndex+len(protocolEnd):]
 	rootIndex := strings.Index(a, "/")
@@ -297,7 +297,7 @@ type soapEnvelope struct {
 //不成功返回错误。
 func soapRequest(url, function, message string) (replyXML []byte, err error) {
 	fullMessage := "<?xml version=\"1.0\" ?>" +
-"<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\”s:encodingstyle=\”http://schemas.xmlsoap.org/soap/encoding/\”>\r\n“+
+"<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\"s:encodingstyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\r\n"+
 		"<s:Body>" + message + "</s:Body></s:Envelope>"
 
 	req, err := http.NewRequest("POST", url, strings.NewReader(fullMessage))
